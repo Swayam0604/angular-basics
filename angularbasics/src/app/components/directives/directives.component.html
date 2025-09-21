@@ -1,0 +1,74 @@
+<p>directives works!</p>
+<h1>Attributes Directives</h1>
+<p>ngStyle, ngClass, ngModel</p>
+
+<hr>
+
+<p [ngClass]="['m-3 p-3', 'bg-warning', 'text-white', 'text-center']">
+    Lorem ipsum dolor sit amet.
+</p>
+<p [ngClass]="{'bg-success': false, 'bg-danger': true}" >
+    Lorem ipsum dolor sit amet.
+</p>
+
+<hr>
+
+<div class="card mb-3" [ngClass]="{'text-light': darkTheme ,'bg-dark': darkTheme, 'bg-light': !darkTheme, 'text-dark': !darkTheme}" style="max-width: 18rem;">
+  <div class="card-header">Header</div>
+  <div class="card-body">
+    <h5 class="card-title">Dark card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="toggleTheme()">Change Theme</button>
+
+<hr>
+
+<p [ngStyle]="style()">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis, labore?</p>
+<button class="btn btn-primary mx-2" (click)="changeSize('50px')">50px</button>
+<button class="btn btn-primary mx-2" (click)="changeSize('60px')">60px</button>
+<button class="btn btn-primary mx-2" (click)="changeSize('70px')">70px</button>
+
+<hr>
+
+<h1>Structural Directives</h1>
+<p>ngIf, ngFor</p>
+
+<p *ngIf="status">If Block...</p>
+
+<hr>
+<ng-container *ngIf="loggedIn;then block1 else block2"></ng-container>
+<ng-template #block1>
+  <h3>Logged In</h3>
+  <p>Welcome back!</p>
+</ng-template>
+<ng-template #block2>
+  <h3>Logged Out</h3>
+  <p>Please log in.</p>
+</ng-template>
+<button class="btn btn-primary" (click)="toggleLogin()">{{loggedIn ? 'Log Out' : 'Log In'}}</button>
+
+<hr>
+<ul class="list-group">
+    <li class="list-group-item" [ngStyle]="{'background-color': color, 'color': 'white'}" *ngFor="let color of colors">{{color}}</li>
+</ul>
+<div class="input-group my-2" style="max-width: 420px;">
+  <label for="">Enter color</label>
+    <input type="text" class="form-control my-2" [(ngModel)]="newColor" placeholder="Enter a color">
+    <button class="btn btn-primary" (click)="addColor()">Add Color</button>
+</div>
+
+<hr>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let todo of todos">
+        <div class="card mb-3" [ngClass]="{'text-light': darkTheme ,'bg-dark': darkTheme, 'bg-light': !darkTheme, 'text-dark': !darkTheme}" style="max-width: 18rem;">
+  <div class="card-header">{{todo.id}} - {{todo.todo}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{todo.completed}}</h5>
+    <p class="card-text">{{todo.userId}}</p>
+  </div>
+</div>
+
+    </li>
+</ul>
