@@ -15,3 +15,10 @@
 <button class="btn btn-primary mx-2" (click)="getProductById(103)">103</button>
 <button class="btn btn-primary mx-2" (click)="getProducts()">All Products</button>
 
+<hr>
+
+<div>
+    <p class="bg-warning m-3 p-3" *ngFor="let c of categories">{{c.id}}. {{c.name}}</p>
+</div>
+
+<button class="btn btn-primary mx-2" (click)="getCategories()">Fetch Categories</button>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProductService } from '../../service/product.service';
 import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../service/category.service';
@@ -12,6 +12,8 @@ import { CategoryService } from '../../service/category.service';
 })
 export class ServiceComponent {
   products : any[]= [];
+  categories : any[]= [];
+  categoryService= inject(CategoryService);
   constructor(private productService: ProductService) {
     this.products = this.productService.getProducts();
   }
@@ -22,6 +24,10 @@ export class ServiceComponent {
 
   getProducts() {
     this.products = this.productService.getProducts();
+  }
+
+  getCategories() {
+    this.categories = this.categoryService.getCategories();
   }
 
 

@@ -1,0 +1,12 @@
+<p>p works!</p>
+
+<button class="btn btn-primary" (click)="changeShowChild()">Show / Hide Child Component Q</button>
+<hr>
+
+<app-q [data]="parentData" *ngIf="showChild">
+    <h3 class="text-center text-light">This is projected content from Parent Component P to Child Component Q using ng-content</h3>
+</app-q>
+
+<button class='btn btn-primary mx-2' (click)='changeParentData("A")'>A</button>
+<button class='btn btn-primary mx-2' (click)='changeParentData("B")'>B</button>
+<button class='btn btn-primary mx-2' (click)='changeParentData("C")'>C</button>

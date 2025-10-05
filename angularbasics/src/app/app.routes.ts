@@ -7,6 +7,7 @@ import { DirectivesComponent } from './components/directives/directives.componen
 import { pipe } from 'rxjs';
 import { PipeExamplesComponent } from './components/pipe-examples/pipe-examples.component';
 import { ServiceComponent } from './components/service/service.component';
+import { ComponentLifecycleComponent } from './components/component-lifecycle/component-lifecycle.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path:"input-output",component: InputAndOutputComponent},
     {path:'directives',component:DirectivesComponent},
     {path:'pipe',component:PipeExamplesComponent},
-    {path:'services', component:ServiceComponent}
+    {path:'services', component:ServiceComponent},
+    {path:'component-lifecycle', component:ComponentLifecycleComponent}
 ];
