@@ -9,6 +9,7 @@ import { PipeExamplesComponent } from './components/pipe-examples/pipe-examples.
 import { ServiceComponent } from './components/service/service.component';
 import { ComponentLifecycleComponent } from './components/component-lifecycle/component-lifecycle.component';
 import { ObservablesComponent } from './observables/observables.component';
+import { QuotesComponent } from './components/quotes/quotes.component';
 
 export const routes: Routes = [
     {path:'',component:HomeComponent},
@@ -18,5 +19,6 @@ export const routes: Routes = [
     {path:'pipe',component:PipeExamplesComponent},
     {path:'services', component:ServiceComponent},
     {path:'component-lifecycle', component:ComponentLifecycleComponent},
-    {path:'observables', component:ObservablesComponent}
+    {path:'observables', component:ObservablesComponent},
+    {path:'quotes', component:QuotesComponent}
 ];
