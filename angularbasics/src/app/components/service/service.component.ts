@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { ProductService } from '../../service/product.service';
+import { ProductService } from '../../services/product.service';
 import { CommonModule } from '@angular/common';
-import { CategoryService } from '../../service/category.service';
+import { CategoryService } from '../../services/category.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-service',
@@ -13,9 +14,16 @@ import { CategoryService } from '../../service/category.service';
 export class ServiceComponent {
   products : any[]= [];
   categories : any[]= [];
+  id : any
+
   categoryService= inject(CategoryService);
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) {
     this.products = this.productService.getProducts();
+  }
+  ngOnInit() {
+    this.activatedRoute.params.subscribe({
+      next: (value) => this.id = value['id']
+    });
   }
 
   getProductById(id: number) {

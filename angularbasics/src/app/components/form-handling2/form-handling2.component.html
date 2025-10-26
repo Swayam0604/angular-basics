@@ -25,6 +25,7 @@
     <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched || form.get('email')?.dirty)">
     <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('email')?.errors?.['required']">Email is required</small> 
     <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('email')?.errors?.['email']">Email must be a valid email</small> 
+
     </div>
   </div>
     <div class="form-group">
@@ -41,6 +42,9 @@
     <div *ngIf="form.get('password')?.invalid && (form.get('password')?.touched || form.get('password')?.dirty)">
     <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('password')?.errors?.['required']">Password is required</small> 
     <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('password')?.errors?.['minlength']">Password must be at least 8 characters long</small> 
+    <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('password')?.errors?.['commonPassword']">Password is too common {{form.get('password')?.value}}</small> 
+    <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('password')?.errors?.['maxlength']">Password must be at most 16 characters long</small> 
+    <small id="emailHelp" class="form-text text-danger" *ngIf=" form.get('password')?.errors?.['passwordPattern']">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character</small> 
     </div>
   </div>
   
